@@ -1,31 +1,34 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link>
-    |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view />
+   <button @click="show">api引用</button>
+   <!-- <button @click="visibile = true">组件调用</button>
+   <el-dialog
+      v-model:visibile="visibile"
+      title="提示"
+      @confirm="visibile = false"
+   >
+      <div>测试内容</div>
+   </el-dialog> -->
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+import { defineComponent } from "vue";
+import { Dialog } from "@/packages/Dialog";
 
-#nav {
-  padding: 30px;
+export default defineComponent({
+   setup() {
+      function show() {
+         Dialog({
+            title: "测试",
+            content: "的撒发生发是否",
+            onCancel() {
+               console.log(1);
+            },
+         });
+      }
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+      return {
+         show,
+      };
+   },
+});
+</script>
