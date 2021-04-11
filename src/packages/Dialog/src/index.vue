@@ -10,7 +10,7 @@
                <div v-if="title" class="dialog-title">{{ title }}</div>
                <slot v-else name="title"></slot>
 
-               <button class="dialog-close"></button>
+               <button class="dialog-close" @click="cancel"></button>
             </div>
 
             <div class="dialog-content">
@@ -134,6 +134,7 @@ export default defineComponent({
       background: none;
       border: none;
       outline: none;
+      cursor: pointer;
 
       &:hover {
          color: var(--color-main);
@@ -230,6 +231,6 @@ export default defineComponent({
 .slide-enter-from,
 .slide-leave-to {
    opacity: 0;
-   transform: translateY(-20px);
+   transform: translateY(-24px);
 }
 </style>
